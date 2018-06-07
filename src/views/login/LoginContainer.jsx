@@ -23,120 +23,24 @@ class LoginBox extends React.Component {
             token:''
         }
     }
-    componentWillMount() {
-        console.log('Component WILL MOUNT!')
-    }
-    componentDidMount() {
-        // For initial data
-        console.log('Component Did MOUNT!')
-        
-    }
-    onSubmit(e) {
-        // this.fetchData();
+
+      fetchData(e) {
         e.preventDefault();
-        // var employee_Id = document.getElementById("loginEmployee_Id").value;
-        // var password = document.getElementById("loginPassword").value;
-        // var data= {email: employee_Id,password: password};
-        // const { username, password } = this.state;
-        // const { history } = this.props;
-      
-        // this.setState({ error: false });
-      
-        // if (!(username === 'george' && password === 'foreman')) {
-        //   return this.setState({ error: true });
-        // }
-      
-        // // store.set('loggedIn', true);
-        // history.push('/dashboard');
+        var employee_Id = document.getElementById("loginEmployee_Id").value;
+        var password = document.getElementById("loginPassword").value;
+        var data= {email: employee_Id,password: password};
+        axios.post( "http://localhost:1337/742fc666.ngrok.io/marvel/login",data)
+        .then( res => {
+          if(res !=='' && res !==null) {
+            alert(res);
+          } else { 
+            // doAnything( res.data )
+          }
         
-        if(employee_Id !== '' && password !== '') {
-            var employee_Id = document.getElementById("loginEmployee_Id").value;
-            var password = document.getElementById("loginPassword").value;
-            var data= {email: employee_Id,password: password};
-            $.ajax({
-                url: 'http://55a26147.ngrok.io/marvel/login',
-                // headers: {
-                //     'Access-Control-Allow-Origin': '*',
-                //     'Accept': 'application/json',
-                //     'Content-Type': 'application/json' 
-                //     },
-                type: 'post',
-                dataType : "json",
-                async: true,
-                cache: false,
-                timeout: 30000, 
-                contentType: "application/x-www-form-urlencoded",
-                data: data,                
-                success: function(data, status) {
-                    console.log("Success!!");
-                    console.log(data);
-                    console.log(status);
-                    // It looks like the page that handles the form returns JSON
-                    // Parse the JSON
-                    var obj = JSON.parse(data);
-                    if(obj.id !== null && obj.id !== '') {
-                        alert("Login succeeded");
-                        // You should redirect the user too
-                        // window.location = 'http://redirecturl.com';
-                        // this.props.loginUser();
-                    }                    
-                }
-            });
-        }
-        else{
-             alert("Login failed - Please enter correct employee_Id and Password")   
-            } 
-      }
-
-
-    //   axios.post( "http://55a26147.ngrok.io/marvel/login",
-    //     { headers: {"Content-Type": "application/json"} } ).then( res => {
-        
-    //       if(res.data.error) {
-        
-    //       } else { 
-    //         // doAnything( res.data )
-    //       }
-        
-    //     }).catch(function (error) {
-    //     //    doAnythingError(error)
-    //     });
-    // }
-
-
-    //   fetchData() {
-    //     var employee_Id = document.getElementById("loginEmployee_Id").value;
-    //     var password = document.getElementById("loginPassword").value;
-    //     var data= {email: employee_Id,password: password};
-    //     if(employee_Id === ""){
-    //         alert("Please Enter your Employee Id")
-    //         // employee_Id.focus()
-    //         return false
-    //     }
-    //     if(password === ""){
-    //         alert("Please enter a Password")
-    //         // password.focus()
-    //         return false
-    //     }
-    //     fetch("http://55a26147.ngrok.io/marvel/login", {
-    //         method: "POST",
-    //         dataType: "JSON",
-    //         // headers: {
-    //         //     "Content-Type": "application/json; charset=utf-8",
-    //         // },
-    //         // contentType: "application/json",
-    //         data:data
-    //     })
-    //         .then((resp) => {
-    //             return resp.json()
-    //         })
-    //         .then((data) => {
-    //             this.setState({ token: data.token });
-    //         })
-    //         .catch((error) => {
-    //             console.log(error, "catch the hoop")
-    //         })
-    // }
+        }).catch(function (error) {
+        //    doAnythingError(error)
+        });        
+    }
     render() {
         return (
                 <Col id="login-box" className="login-box visible widget-box no-border">
@@ -148,7 +52,7 @@ class LoginBox extends React.Component {
                             </h4>
 
                             <Col className="space-6"></Col>
-                            <Form horizontal onSubmit={this.onSubmit.bind(this)}>
+                            <Form horizontal onSubmit={this.fetchData.bind(this)}>
                                 <FormGroup controlId="formHorizontalEmail">
                                     <Col sm={12}>
                                     <FormControl type="text" placeholder="Employee Id" id="loginEmployee_Id"/>

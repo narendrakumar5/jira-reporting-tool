@@ -42,51 +42,7 @@ class SignUpBox extends React.Component {
         var employee_Id = document.getElementById("employee_Id").value;
         var name = document.getElementById("name").value;
         var email = document.getElementById("emailId").value;
-        // $.ajax({
-        //             url: 'http://localhost:1337/d0ba1668.ngrok.io/marvel/registration',
-        //             // url: 'http://reduxblog.herokuapp.com/api/',
-        //             type: 'POST',
-        //             data: {
-        //                 employee_Id: employee_Id,
-        //                 name:name
-        //             },
-        //             success: function(response) {
-        //                 console.log(response);
-        //                 // It looks like the page that handles the form returns JSON
-        //                 // Parse the JSON
-        //                 var obj = JSON.parse(response);
-        //                 if(obj !== null && obj !== '') {
-        //                     alert("Login succeeded");
-        //                     // You should redirect the user too
-        //                     window.location = 'http://redirecturl.com';
-        //                     // this.props.loginUser();
-        //                 }                    
-        //             }
-        //         });
-        // axios.post('http://localhost:1337/d0ba1668.ngrok.io/marvel/registration', { employee_Id: this.state.employee_Id, email: this.state.email, name: this.state.name },{'Content-Type': 'application/json'})
-        // .then(function(data){
-        //   console.log(data+'saved successfully');
-        // //   this.setState({message:response.message})
-        // //   this.setState({message:response.message})
-        // }); 
-        // debugger;
-        // {
-        //     "password":"333",
-        //     "email":"jatin.sokhal@globallogic.com",
-        //     "name":"jatin sokhal"
-        //     }
-        // fetch('http://55a26147.ngrok.io/marvel/registration', {
-        //         method: 'POST',
-        //         headers : new Headers({
-        //             'Content-Type': 'application/json'
-        //           }),
-        //         body:JSON.stringify({ employee_Id: this.state.employee_Id, email: this.state.email, name: this.state.name})
-        //     }).then((data) => {
-        //         console.log(data.status);
-        //         this.setState({status: ''+data.status});
-        //         this.display_alert(this.state.status);
-        //     })
-        //     .catch((err)=>console.log(err))
+        
         }
     render() {
         return (
