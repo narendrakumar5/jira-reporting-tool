@@ -21,61 +21,12 @@ class LoginBox extends React.Component {
             password: ''
         }
     }
-    componentWillMount() {
-        console.log('Component WILL MOUNT!')
-    }
-    componentDidMount() {
-        // For initial data
-        console.log('Component Did MOUNT!')
-    }
-    handleSubmit(e) {
-        // this.formValidate();
-        // e.preventDefault();
-        
-        // const formData = {};
-        // for (const field in this.refs) {
-        //   formData[field] = this.refs[field].value;
-        // }
-    }
+
     formValidate(){
         var employee_Id = document.getElementById("loginEmployee_Id").value;
         var password = document.getElementById("loginPassword").value;
         var data= {username: employee_Id,password: password};
-        // if(employee_Id === ""){
-        //     alert("Please Enter your Employee Id")
-        //     employee_Id.focus()
-        //     return false
-        // }
-        // if(password === ""){
-        //     alert("Please enter a Password")
-        //     password.focus()
-        //     return false
-        // }
-        // if(employee_Id !== '' && password !== '') {
-        //     $.ajax({
-        //         url: 'http://3b4042ac.ngrok.io/marvel/login',
-        //         type: 'POST',
-        //         contentType: "application/json",
-        //         header:'ed347073-2466-9766-5228-ee554a7ae0b7',
-        //         data: data,
-        //         success: function(result) {
-        //             console.log(result);
-        //             // It looks like the page that handles the form returns JSON
-        //             // Parse the JSON
-        //             var obj = JSON.parse(result);
-        //             debugger;
-        //             if(obj.id !== null && obj.id !== '') {
-        //                 alert("Login succeeded");
-        //                 // You should redirect the user too
-        //                 // window.location = 'http://redirecturl.com';
-        //                 this.props.loginUser();
-        //             }                    
-        //         }
-        //     });
-        // }
-        // else{
-        //      alert("Login failed - Please enter correct employee_Id and Password")   
-        //     } 
+        
         if( employee_Id === "Test" && password === "Test"){
             // { redirect: true, {path: "/", to: "/dashboard", name: "Dashboard"} }
             // var indexRoutes = [{ path: "/", name: "Home", component: Dashboard }];
@@ -87,36 +38,7 @@ class LoginBox extends React.Component {
          alert("Login failed - Please enter correct employee_Id and Password")   
         }
         }
-    // fetchData() {
-    //     var userEmployee_Id = document.getElementById("emp").value;
-    //     var password = document.getElementById("password").value;
-    //     if(userEmployee_Id === ""){
-    //         alert("Please Enter your Employee Id")
-    //         userEmployee_Id.focus()
-    //         return false
-    //     }
-    //     if(password === ""){
-    //         alert("Please enter a Password")
-    //         password.focus()
-    //         return false
-    //     }
-    //     fetch("../src/components/login/userDetails.json", {
-    //         method: "GET",
-    //         dataType: "JSON",
-    //         headers: {
-    //             "Content-Type": "application/json; charset=utf-8",
-    //         }
-    //     })
-    //         .then((resp) => {
-    //             return resp.json()
-    //         })
-    //         .then((data) => {
-    //             this.setState({ userEmployee_Id: data.userdetails.employee_Id });
-    //         })
-    //         .catch((error) => {
-    //             console.log(error, "catch the hoop")
-    //         })
-    // }
+    
 
     render() {
         return (
