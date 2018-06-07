@@ -1,4 +1,4 @@
-import Dashboard from "views/Dashboard/Dashboard";
+import Dashboard from "../views/Dashboard/Dashboard";
 import LoginContainer from '../components/login/LoginContainer'
 
 const logincontainerRoutes = [

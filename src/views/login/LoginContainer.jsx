@@ -1,18 +1,20 @@
 import React from 'react';
-import "../../assets/css/newcss/GLmain.css";
 import $ from 'jquery';
 import axios from 'axios';
 import { HashRouter, Route, Switch } from "react-router-dom";
-import Dashboard from "layouts/Dashboard/Dashboard.jsx";
-import indexRoutes from "routes/index.jsx";
-import { FormInputs } from "components/FormInputs/FormInputs.jsx";
+
+import Dashboard from "../../layouts/Dashboard/Dashboard.jsx";
+import indexRoutes from "../../routes/index.jsx";
+import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
+import "../../assets/css/newcss/GLmain.css";
+import { leftWrench,greyColor } from '../../Constants/appConstants';
 
 // eslint-disable-next-line
 import { Link } from 'react-router-dom';
 // eslint-disable-next-line
 import {Grid, Row, Col, Form,Glyphicon, FormGroup,Checkbox, ControlLabel, FormControl, FormText, Button } from 'react-bootstrap'
 // eslint-disable-next-line
-import { leftWrench,greyColor } from '../../Constants/appConstants';
+
 
 class LoginBox extends React.Component {
     constructor(props) {

@@ -5,8 +5,8 @@ import NotificationSystem from "react-notification-system";
 import Dashboard from "../../views/Dashboard/Dashboard";
 import LoginContainer from '../../components/login/LoginContainer'
 
-import dashboardRoutes from "routes/dashboard.jsx";
-import logincontainerRoutes from "routes/logincontainerRoutes.jsx";
+import dashboardRoutes from "../../routes/dashboard.jsx";
+import logincontainerRoutes from "../../routes/logincontainerRoutes.jsx";
 import {mainPanelWidth } from '../../Constants/appConstants';
 
 class Logincontainer extends Component {

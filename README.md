@@ -1,4 +1,4 @@
-# [Dashboard React](http://lbd-react.creative-tim.com/)
+# [Dashboard React]
 
 ## Terminal Commands
 
