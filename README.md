@@ -1,4 +1,4 @@
-# [Dashboard React]
+# [ jira-reporting-tool ]
 
 ## Terminal Commands
 
@@ -92,5 +92,4 @@ Light Bootstrap Dashboard React
             └── UserProfile.jsx
 ```
 
-# jira-reporting-tool
-# jira-reporting-tool
+

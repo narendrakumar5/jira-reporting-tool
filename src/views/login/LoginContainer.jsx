@@ -34,7 +34,7 @@ class LoginBox extends React.Component {
         axios.post( "http://localhost:1337/742fc666.ngrok.io/marvel/login",data)
         .then( res => {
           if(res !=='' && res !==null) {
-            alert(res);
+            console.log(JSON.stringify(res));
           } else { 
             // doAnything( res.data )
           }
