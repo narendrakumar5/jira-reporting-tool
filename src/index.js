@@ -4,7 +4,8 @@ import ReactDOM from "react-dom";
 import { HashRouter, Route, Switch } from "react-router-dom";
 
 import indexRoutes from "./routes/index.jsx";
-import LoginContainer from './components/login/LoginContainer'
+// import LoginContainer from './components/login/LoginContainer';
+import logincontainer from './layouts/Loginbox/logincontainer';//form layouts
 import Dashboard from "./layouts/Dashboard/Dashboard.jsx";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,7 +23,7 @@ ReactDOM.render(
         debugger
         return <Route to={prop.path} component={prop.component} key={key} />;
       })} */}
-      <Route path="/"  name= "Home" component={LoginContainer}/>
+      <Route path="/"  name= "Home" component={logincontainer}/>
       <Route path="/dashboard"  name= "Dashboard" component={Dashboard}/>
     </Switch>
   </HashRouter>,

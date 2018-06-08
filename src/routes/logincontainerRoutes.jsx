@@ -1,5 +1,7 @@
 import Dashboard from "../views/Dashboard/Dashboard";
-import LoginContainer from '../components/login/LoginContainer'
+import LoginContainer from '../layouts/Loginbox/LoginContainer'
+import SignUpBox from "../layouts/Loginbox/SignUpBox.jsx";
+import ForgotBox from "../views/UserProfile/UserProfile.jsx";
 
 const logincontainerRoutes = [
   {
@@ -7,6 +9,18 @@ const logincontainerRoutes = [
     name: "LoginContainer",
     icon: "pe-7s-note2",
     component: LoginContainer
+  },
+  {
+    path: "/SignUpBox",
+    name: "SignUpBox",
+    icon: "pe-7s-note2",
+    component: SignUpBox
+  },
+  {
+    path: "/UserProfile",
+    name: "UserProfile",
+    icon: "pe-7s-note2",
+    component: ForgotBox
   },
   {
     path: "/dashboard",

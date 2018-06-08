@@ -6,7 +6,7 @@ import TableList from "../views/TableList/TableList";
 // import Maps from "views/Maps/Maps";
 import Notifications from "../views/Notifications/Notifications";
 // import Upgrade from "views/Upgrade/Upgrade";
-import LoginContainer from '../components/login/LoginContainer'
+import LoginContainer from '../layouts/Loginbox/logincontainer'
 
 const dashboardRoutes = [
   {
