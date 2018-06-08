@@ -16,6 +16,7 @@ class LoginContainer extends React.Component {
                 <Col className="login-container">
                   <Col className="space-6"></Col>
                   <Col className="position-relative">
+                      <LoginHeader />
                       <LoginBox/>
                       <ForgotBox/>
                       <SignUpBox/>
