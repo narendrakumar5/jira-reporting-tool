@@ -1,9 +1,9 @@
 import React from 'react';
 import LoginHeader from './LoginHeader';
 import LoginBox from '../../views/login/LoginContainer';
-import ForgotBox from './ForgotBox';
-import TopHeader from './TopHeader';
-import SignUpBox from './SignUpBox';
+// import ForgotBox from './ForgotBox';
+// import TopHeader from './TopHeader';
+// import SignUpBox from './SignUpBox';
 import { Col} from 'react-bootstrap'
 class LoginContainer extends React.Component {
   render() {
@@ -18,9 +18,9 @@ class LoginContainer extends React.Component {
                   <Col className="position-relative">
                       <LoginHeader />
                       <LoginBox/>
-                      <ForgotBox/>
+                      {/* <ForgotBox/>
                       <SignUpBox/>
-                      <TopHeader/>
+                      <TopHeader/> */}
                     </Col>
                     </Col>
                   </Col>

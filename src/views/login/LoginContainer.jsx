@@ -1,12 +1,13 @@
 import React from 'react';
 import $ from 'jquery';
 import axios from 'axios';
-import { Link, HashRouter, Route, Switch, withRouter } from "react-router-dom";
+import { Link,withRouter} from "react-router-dom";
 
-import Dashboard from "../../layouts/Dashboard/Dashboard.jsx";
-import indexRoutes from "../../routes/index.jsx";
+// import { Link, HashRouter, Route, Switch, withRouter } from "react-router-dom";
 
-import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
+// import Dashboard from "../../layouts/Dashboard/Dashboard.jsx";
+// import indexRoutes from "../../routes/index.jsx";
+// import { FormInputs } from "../../components/FormInputs/FormInputs.jsx";
 import "../../assets/css/newcss/GLmain.css";
 import { leftWrench, greyColor } from '../../Constants/appConstants';
 
@@ -44,12 +45,22 @@ class LoginBox extends React.Component {
         e.preventDefault();
         var employee_Id = document.getElementById("loginEmployee_Id").value;
         var password = document.getElementById("loginPassword").value;
+        if(employee_Id === ""){
+            alert("Please Enter your Employee Id")
+            $("#loginEmployee_Id").focus()
+            return false
+        }
+        if(password === ""){
+            alert("Please enter a Password")
+            $("#loginPassword").focus()
+            return false
+        }
         var data = { email: employee_Id, password: password };
-        axios.post("http://localhost:1337/e042d250.ngrok.io/marvel/login", data)
+        axios.post("http://localhost:1337/3e3c44d0.ngrok.io/marvel/login", data)
             .then(res => {
-                this.props.history.push('/dashboard');
                 if (res.data.isSuccess !== null && res.data.isSuccess === true) {
                     alert("Login " + res.data.message);
+                    this.props.history.push('/dashboard');
                     // this.props.loginUser();
                 } else if (res.data.isSuccess !== null && res.data.isSuccess === false) {
                     alert("Login " + res.data.message);
@@ -59,8 +70,11 @@ class LoginBox extends React.Component {
                     // alert(JSON.stringify("Some neccessary fileds are missing."));
                 }
 
-            }).catch(function (error) {
-                console.log(error);
+            }).catch(function (res) {
+                if (res.response.data.isSuccess !== null && res.response.data.isSuccess === false) {
+                    alert(res.response.data.message);
+                    return false;
+                }
             });
     }
     render() {

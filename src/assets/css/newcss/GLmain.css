@@ -17008,3 +17008,7 @@ input.typeahead.scrollable~.tt-menu{
 .widthchange{
     width: 35px!important
 }
+.bg-color{
+    height: 100%;
+    background-color: #1D2024;
+}

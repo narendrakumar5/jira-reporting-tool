@@ -3,13 +3,13 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import NotificationSystem from "react-notification-system";
 
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+// import Footer from "../../components/Footer/Footer";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
 import { style } from "../../variables/Variables.jsx";
 
 import dashboardRoutes from "../../routes/dashboard.jsx";
-import { leftRefresh,leftWrench,whiteColor,greyColor,backgroundColor } from '../../Constants/appConstants';
+// import { leftRefresh,leftWrench,whiteColor,greyColor,backgroundColor } from '../../Constants/appConstants';
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -128,7 +128,7 @@ class Dashboard extends Component {
               );
             })}
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </div>
     );
