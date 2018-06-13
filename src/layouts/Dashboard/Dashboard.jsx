@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import axios from 'axios';
+import $ from 'jquery';
+import { Link, withRouter } from "react-router-dom";
 import { Route, Switch, Redirect } from "react-router-dom";
 import NotificationSystem from "react-notification-system";
 
@@ -16,9 +19,34 @@ class Dashboard extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handleNotificationClick = this.handleNotificationClick.bind(this);
     this.state = {
-      _notificationSystem: null
+      _notificationSystem: null,
+      _data: null
     };
   }
+  componentWillMount(e) {
+    var tokenValue = JSON.parse(this.props.location.state.Token);
+    axios.get("http://localhost:1337/acf3bf9a.ngrok.io/marvel/api/user/detail/",
+      {
+        headers: {
+          "jwttoken": tokenValue
+        }
+      }).then(res => {
+        if (res.data.isSuccess !== null && res.data.isSuccess === true) {
+          const userDetails = res.data;
+            // this.props.history.push('/SignUpBox');
+          alert("Hello " + userDetails.data[0].name + "\nYou login as : " +userDetails.data[0].role);          
+          // this.props.history.push('/emailSucess');
+        } else if (res.data.isSuccess !== null && res.data.isSuccess === false) {
+          alert("userDetails missing " + res.data.message + "!");
+          // alert(JSON.stringify("Some neccessary fileds are missing."));
+        }
+
+      }).catch(function (error) {
+        console.log(error);
+      });
+
+  }
+
   handleNotificationClick(position) {
     var color = Math.floor(Math.random() * 4 + 1);
     var level;
@@ -76,7 +104,7 @@ class Dashboard extends Component {
       title: <span data-notify="icon" className="pe-7s-gift" />,
       message: (
         <div>
-          Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for
+          Welcome to <b>JIRA reporting tool</b> - a beautiful freebie for
           every web developer.
         </div>
       ),

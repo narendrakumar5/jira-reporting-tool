@@ -22,7 +22,7 @@ class LoginBox extends React.Component {
         this.state = {
             employee_Id: '',
             password: '',
-            token: '',
+            userToken: '',
             errorMessage: ''
         }
     }
@@ -55,18 +55,21 @@ class LoginBox extends React.Component {
             $("#loginPassword").focus()
             return false
         }
+        var self= this;
         var data = { email: employee_Id, password: password };
-        axios.post("http://localhost:1337/3e3c44d0.ngrok.io/marvel/login", data)
+        axios.post("http://localhost:1337/acf3bf9a.ngrok.io/marvel/login", data)
             .then(res => {
                 if (res.data.isSuccess !== null && res.data.isSuccess === true) {
                     alert("Login " + res.data.message);
-                    this.props.history.push('/dashboard');
+                    var Token = JSON.stringify(res.data.data[0].token);
+                    
+                    self.props.history.push({
+                        pathname: '/dashboard',
+                        state: { Token: Token }
+                      })           
                     // this.props.loginUser();
                 } else if (res.data.isSuccess !== null && res.data.isSuccess === false) {
                     alert("Login " + res.data.message);
-                    this.setState({
-                        errorMessage: data.message
-                    });
                     // alert(JSON.stringify("Some neccessary fileds are missing."));
                 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import $ from 'jquery';
 import { Link, withRouter } from "react-router-dom";
 import LoginHeader from './LoginHeader';
 // import LoginBox from '../../views/login/LoginContainer';
@@ -53,18 +54,20 @@ class SignUpBox extends React.Component {
         var email = document.getElementById("employee_Id").value;
         var password = document.getElementById("password").value;
         var data = { name: name,email: email,  password: password };
-        axios.post("http://localhost:1337/3e3c44d0.ngrok.io/marvel/registration", data)
+        axios.post("http://localhost:1337/acf3bf9a.ngrok.io/marvel/registration", data)
             .then(res => {
-                debugger;
-                this.props.history.push('/');
-                if (res.data !== null && res.data === true) {
+                if (res.data.isSuccess !== null && res.data.isSuccess === true) {
+                    if(res.data.message === "User Exists"){
+                        alert("Already " + res.data.message + "!");
+                        this.props.history.push('/SignUpBox');
+                        $( "#resetButton" ).trigger( "click" );
+                        return false;
+                    }
                     alert("registration " + res.data.message);
+                    this.props.history.push('/emailSucess');
                     // this.props.loginUser();
-                } else if (res.data !== null && res.data === false) {
-                    alert("registration " + res.data.message);
-                    this.setState({
-                        errorMessage: "data.message"
-                    });
+                } else if (res.data.isSuccess !== null && res.data.isSuccess === false) {
+                    alert("Registration " + res.data.message+ "!");
                     // alert(JSON.stringify("Some neccessary fileds are missing."));
                 }
 
@@ -123,7 +126,7 @@ class SignUpBox extends React.Component {
 
                                     <FormGroup>
                                         <Col sm={4}>
-                                            <Button type="reset" bsSize="small" block>Reset</Button>
+                                            <Button type="reset" bsSize="small" id="resetButton" block>Reset</Button>
                                             <FormControl.Feedback>
                                                 <Glyphicon glyph="refresh" style={leftRefresh} />
                                             </FormControl.Feedback>

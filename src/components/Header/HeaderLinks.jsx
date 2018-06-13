@@ -4,6 +4,11 @@ import { NavItem, Nav, NavDropdown, MenuItem } from "react-bootstrap";
 
 class HeaderLinks extends Component {
 
+  logout(){
+    alert("Are you sure ?")
+    this.props.history.push('/');
+  }
+
 render() {
   const notification = (
     <div>
@@ -56,8 +61,8 @@ render() {
         </NavDropdown>
         <NavItem eventKey={3}>
           <Link to={{
-              pathname: '/'
-          }} className="forgot-password-link">Log out</Link>
+              
+          }} className="forgot-password-link" onClick={this.logout.bind(this)}>Log out</Link>
           </NavItem>
       </Nav>
     </div>
