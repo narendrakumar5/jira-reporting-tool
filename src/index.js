@@ -11,7 +11,7 @@ import logincontainer from './layouts/Loginbox/logincontainer';//form layouts
 import Dashboard from "./layouts/Dashboard/Dashboard.jsx";
 import ForgotBox from "./layouts/Loginbox/ForgotBox.jsx";
 import SignUpBox from "./layouts/Loginbox/SignUpBox.jsx";
-import EmailSuccess from "./layouts/Loginbox/emailSucess";
+import EmailSucess from "./layouts/Loginbox/emailSucess";
 import ResetPassword from "./layouts/Loginbox/resetPassword";
 // import EmailSuccess from "./components/htmlPages/emailSucess.html";
 // import ResetPassword from "./components/htmlPages/resetPassword.html";
@@ -59,8 +59,8 @@ ReactDOM.render((<App>
       <Route path="/Typography"  name= "Typography" component={Typography}/>
       <Route path="/Upgrade"  name= "Upgrade" component={Upgrade}/>
       <Route path="/UserProfile"  name= "UserProfile" component={UserProfile}/>
-      <Route path="/emailSuccess"  name= "UserProfile" component={EmailSuccess}/>
-      <Route path="/resetPassword"  name= "UserProfile" component={ResetPassword}/>
+      <Route path="/EmailSucess"  name= "EmailSuccess" component={EmailSucess}/>
+      <Route path="/resetPassword"  name= "resetPassword" component={ResetPassword}/>
       </Switch>
   </Router>
 </App>), document.getElementById('root'));

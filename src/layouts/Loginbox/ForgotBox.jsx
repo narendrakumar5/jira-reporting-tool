@@ -18,32 +18,33 @@ class ForgotBox extends React.Component {
             'employee_Id': '',
             'email': ''
         }
-        this.forgotPassword = this.forgotPassword.bind(this);
+        this.sendMePassword = this.sendMePassword.bind(this);
         // this.handle_input_text = this.handle_input_text.bind(this);
     }
-    forgotPassword() {
-        var email = document.getElementById("emailId").value;
-        var data = {email: email };
-        axios.put("http://localhost:1337/acf3bf9a.ngrok.io/marvel/registration", data)
-            .then(res => {
-                if (res.data.isSuccess !== null && res.data.isSuccess === true) {
-                    if(res.data.message === "User Exists"){
-                        alert("Already " + res.data.message + "!");
-                        this.props.history.push('/SignUpBox');
-                        $( "#resetButton" ).trigger( "click" );
-                        return false;
-                    }
-                    alert("registration " + res.data.message);
-                    this.props.history.push('/resetPassword');
-                    // this.props.loginUser();
-                } else if (res.data.isSuccess !== null && res.data.isSuccess === false) {
-                    alert("registration " + res.data.message);
-                    // alert(JSON.stringify("Some neccessary fileds are missing."));
-                }
+    sendMePassword() {
+        this.props.history.push('/resetPassword');
+        // var email = document.getElementById("emailId").value;
+        // var data = {email: email };
+        // axios.put("http://localhost:1337/5b180134.ngrok.io/marvel/forget", data)
+        //     .then(res => {
+        //         if (res.data.isSuccess !== null && res.data.isSuccess === true) {
+        //             if(res.data.message === "User Exists"){
+        //                 alert("Already " + res.data.message + "!");
+        //                 this.props.history.push('/SignUpBox');
+        //                 $( "#resetButton" ).trigger( "click" );
+        //                 return false;
+        //             }
+        //             alert("registration " + res.data.message);
+        //             this.props.history.push('/resetPassword');
+        //             // this.props.loginUser();
+        //         } else if (res.data.isSuccess !== null && res.data.isSuccess === false) {
+        //             alert("registration " + res.data.message);
+        //             // alert(JSON.stringify("Some neccessary fileds are missing."));
+        //         }
 
-            }).catch(function (error) {
-                console.log(error);
-            });
+        //     }).catch(function (error) {
+        //         console.log(error);
+        //     });
     }
 
     render() {
@@ -64,7 +65,7 @@ class ForgotBox extends React.Component {
                                 <p>
                                     Enter your email and to receive instructions
 						</p>
-                                <Form horizontal onSubmit={this.forgotPassword.bind(this)}>
+                                <Form horizontal onSubmit={this.sendMePassword.bind(this)}>
                                     <FormGroup>
                                         <Col sm={12}>
                                             <FormControl type="text" placeholder="Enter your Email" id="emailId" />
